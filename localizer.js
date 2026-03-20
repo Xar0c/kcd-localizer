@@ -16,7 +16,7 @@ const el = {
     fileBrowser:    document.getElementById("filelist"),
     stringBrowser:  document.getElementById("stringbrowser"),
     navControls:    document.getElementById("navcontrols"),
-    notesArea:      document.getElementById("notesarea")
+    notesArea:      document.getElementById("notesarea"),
 }
 
 async function dropHandler(e) {
