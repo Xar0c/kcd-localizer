@@ -34,8 +34,31 @@ async function dropHandler(e) {
 
     await loadPak(pakfile);
     //console.log(`Loaded ${pakfile.name} which contains ${state.files.size} files`)
+    if (ext == "pak" && checkOutdated() && confirm("This .pak file seems to have outdated translation hints. Would you like to copy new ones from current in-game translations?")) {
+        updateHints();
+    }
+
     renderList(); // Redundant but just in case loadFile fails
     loadFile(state.files.keys().next().value);
+}
+
+function updateHints() {
+    for (const filename of state.files.keys()) {
+        const rows = state.files.get(filename).querySelectorAll("Row");
+        for (const row of rows) {
+            const cells = row.querySelectorAll("Cell");
+            cells[1].textContent = cells[2].textContent;
+        }
+    }
+}
+
+function checkOutdated() {
+    const xml = state.files.get("text_ui_items.xml");
+    const id = "alch_absintium_step_5";
+    const row = [...xml.querySelectorAll("Row")].find(row => row.querySelector("Cell")?.textContent == id);
+    const cells = row.querySelectorAll("Cell");
+    // Using arbitrary know outdated hint. Some non-english revisions may pass this check even if they are outdated.
+    return cells[1].textContent == "Distil";
 }
 
 function reset() {
