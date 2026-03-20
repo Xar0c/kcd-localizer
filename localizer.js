@@ -29,7 +29,8 @@ async function dropHandler(e) {
     const ext = pakfile.name.split(".").pop();
     if (!["pak", "zip"].includes(ext)) return;
 
-    state.pakName = pakfile.name.split(".").shift();
+    // Crappy regex
+    state.pakName = pakfile.name.split(".").shift().replace(/_[0-9]+/i, "");
 
     await loadPak(pakfile);
     //console.log(`Loaded ${pakfile.name} which contains ${state.files.size} files`)
@@ -135,6 +136,7 @@ function loadFile(filename) {
     renderPage();
     renderNav();
     renderList();
+    renderNotes();
 }
 
 function getProgress(id) {
@@ -160,7 +162,9 @@ function renderPage() {
 }
 
 function renderNotes() {
-    el.notesArea.innerText = state.progress.get("editornotes");
+    if (state.progress.get("editornotes")) {
+        el.notesArea.value = state.progress.get("editornotes");
+    }
 }
 
 function renderNav() {
@@ -296,7 +300,7 @@ el.exportBtn.addEventListener('click', e => {
 });
 
 el.notesArea.addEventListener("input", e => {
-    state.progress.set("editornotes", e.target.textContent);
+    state.progress.set("editornotes", e.target.value);
     state.unsaved = true;
 });
 
