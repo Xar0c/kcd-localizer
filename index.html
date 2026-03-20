@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCD-LOCALIZER</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar">
+            <div id="fileloader">
+                <label id="droparea">
+                    Click or drag .pak file
+                    <input type="file" id="file-input" accept=".pak" />
+                </label>
+                <div id="controls">
+                    <div id="savebtn" class="btn">Save</div>
+                    <div id="exportbtn" class="btn">Export</div>
+                </div>
+            </div>
+            <div id="filebrowser">
+                <ul id="filelist"></ul>
+            </div>
+            <textarea id="notesarea" autocomplete="off">
+Unofficial KCD localization editor
+by Xar0c - 2026
+
+Red = Unedited
+Blue = Edited
+Green = OK!
+
+Use this text area for notes about translation, this will be saved with the rest of your progress.
+
+https://github.com/Xar0c/kcd-localizer/
+</textarea>
+        </div>
+        <div id="workspace">
+            <div id="navbar">
+                <input id="searchbar" placeholder="Search strings... (WIP)"></input>
+                <div id="navcontrols">
+                    <div class="btn">❮</div>
+                    <div style="display: flex; flex-direction: row;" id="pagecounter">
+                        <div id="counter">0</div>/ 0
+                    </div>
+                    <div class="btn">❯</div>
+                </div>
+            </div>
+            <div id="stringbrowser"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="libs/jszip/zip.min.js"></script>
+<script type="text/javascript" src="/localizer.js" defer></script>

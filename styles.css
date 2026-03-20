@@ -1,0 +1,388 @@
+:root {
+    --bg:       #1e1e1e;
+    --bg-mid:   #242424;
+    --bg-light: #323232;
+    --bg-shine: #404040;
+    --primary:  #e7e7e7;
+    --dim:      #858585;
+    --dark:     #434343;
+}
+
+html, body {
+    background-color: var(--bg);
+    color: var(--primary);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn {
+    background-color: var(--dark);
+    padding: 10px;
+    border-radius: 10px;
+    border-color: var(--dim);
+    border-style: solid;
+    border-width: 1px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--dim);
+}
+
+#app {
+    display: flex;
+    flex-direction: row;
+    height: 95vh;
+}
+
+
+#title {
+    font-size: x-large;
+    font-weight: bold;
+
+    height: 30px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: var(--dark);
+
+    margin: 10px;
+    padding: 10px;
+    margin-right: auto;
+    
+    background-color: var(--bg-mid);
+}
+
+#counter {
+    background-color: var(--bg-shine);
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-right: 5px;
+    padding-right: 5px;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+#navcontrols {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 30px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: var(--dark);
+
+    margin: 10px;
+    padding: 10px;
+    margin-left: auto;
+    
+    background-color: var(--bg-mid);
+}
+
+#pagecounter {
+    font-size: large;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+#stringbrowser {
+    height: 100%;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: var(--dark);
+
+    margin: 10px;
+    padding: 10px;
+    
+    background-color: var(--bg-mid);
+
+    overflow-y: auto;
+}
+
+.stringcard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+    padding: 10px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: var(--dark);
+}
+
+.card-id {
+    flex: 1 0;
+    overflow-wrap: anywhere;
+}
+
+.card-sampletext {
+    flex: 2 0;
+    color: var(--primary);
+    background-color: var(--bg-mid);
+
+    margin-left: 30px;
+    padding: 10px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: var(--dim);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+
+    outline: none;
+    resize: none;
+}
+
+.card-edittext {
+    flex: 2 0;
+    color: var(--primary);
+    background-color: var(--bg-light);
+
+    margin-left: 10px;
+    padding: 10px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: var(--dim);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+
+    outline: none;
+    resize: none;
+}
+
+.card-rating {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.rating-btn {
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    padding: 20px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: var(--dark);
+}
+
+.red {
+    background-color: rgb(194, 81, 81);
+}
+.blue {
+    background-color: rgb(54, 116, 216);
+}
+.green {
+    background-color: rgb(49, 172, 52);
+}
+.inactive:hover {
+    background-color: var(--bg-shine);
+}
+.inactive {
+    background-color: var(--bg-mid);
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    min-width: 320px;
+    flex-shrink: 0;
+
+    padding: 5px;
+}
+
+#notearea {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    min-width: 320px;
+    flex-shrink: 0;
+
+    padding: 5px;
+}
+
+#workspace {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    min-width: 600px;
+
+    padding: 5px;
+}
+
+#notesarea {
+    color: var(--primary);
+    background-color: var(--bg-light);
+    height: 100%;
+
+    margin: 10px;
+    padding: 10px;
+
+    border-color: var(--dark);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+
+    resize: none;
+}
+
+#fileloader {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 20px;
+
+    background-color: var(--bg-mid);
+
+    border-color: var(--dark);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+}
+
+#droparea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 100px;
+    margin-bottom: 20px;
+    background-color: var(--bg-light);
+
+    color: var(--dim);
+    font-size: x-large;
+
+    border-color: var(--dim);
+    border-width: 4px;
+    border-radius: 10px;
+    border-style: dashed;
+
+    cursor: pointer;
+}
+
+#droparea.dragging {
+    background-color: var(--bg-shine);
+    
+}
+
+#file-input {
+    display: none;
+}
+
+#controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#filebrowser {
+    display: flex;
+    flex-direction: column;
+
+    padding: 5px;
+    margin: 10px;
+
+    background-color: var(--bg-mid);
+
+    border-style: solid;
+    border-color: var(--dark);
+    border-width: 2px;
+    border-radius: 10px;
+}
+
+#searchbar {
+    min-width: 400px;
+    height: 30px;
+
+    padding: 10px;
+    margin: 10px;
+    color: var(--primary);
+
+    font-size: medium;
+
+    background-color: var(--bg-light);
+
+    border-style: solid;
+    border-color: var(--dark);
+    border-width: 2px;
+    border-radius: 10px;
+
+    outline: none;
+}
+
+#filelist {
+    height: 300px;
+    overflow-y: scroll;
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.filelistentry {
+    padding: 10px;
+    margin-bottom: 10px;
+
+    background-color: var(--bg-light);
+    
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--dark);
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.filelistentry.active {
+    padding: 10px;
+    margin-bottom: 10px;
+
+    background-color: var(--bg-shine);
+    
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--mid);
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.filelistentry:hover {
+    background-color: var(--bg-shine);
+}
+
+#infobox {
+    color: var(--dim);
+    height: 100%;
+
+    background-color: var(--bg-mid);
+
+    border-style: solid;
+    border-color: var(--dark);
+    border-width: 2px;
+    border-radius: 10px;
+
+    margin: 10px;
+    padding: 10px;
+}
