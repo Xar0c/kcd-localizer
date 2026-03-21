@@ -6,6 +6,9 @@
     --primary:  #e7e7e7;
     --dim:      #858585;
     --dark:     #434343;
+    --red:      rgb(194, 81, 81);
+    --blue:     rgb(54, 116, 216);
+    --green:    rgb(49, 172, 52);
 }
 
 html, body {
@@ -32,7 +35,7 @@ html, body {
 #app {
     display: flex;
     flex-direction: row;
-    height: 95vh;
+    height: 98vh;
 }
 
 
@@ -81,7 +84,6 @@ html, body {
 
     margin: 10px;
     padding: 10px;
-    margin-left: auto;
     
     background-color: var(--bg-mid);
 }
@@ -185,13 +187,13 @@ html, body {
 }
 
 .red {
-    background-color: rgb(194, 81, 81);
+    background-color: var(--red);
 }
 .blue {
-    background-color: rgb(54, 116, 216);
+    background-color: var(--blue);
 }
 .green {
-    background-color: rgb(49, 172, 52);
+    background-color: var(--green);
 }
 .inactive:hover {
     background-color: var(--bg-shine);
@@ -312,8 +314,41 @@ html, body {
     border-radius: 10px;
 }
 
+#tracker {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    font-size: large;
+
+    min-width: 150px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: auto;
+
+    background-color: var(--bg-mid);
+
+    border-style: solid;
+    border-color: var(--dark);
+    border-width: 2px;
+    border-radius: 10px;
+}
+
+#tracker-green {
+    color: var(--green);
+}
+
+#tracker-blue {
+    color: var(--blue);
+}
+
+#tracker-red {
+    color: var(--red);
+}
+
 #searchbar {
-    min-width: 400px;
+    min-width: 200px;
     height: 30px;
 
     padding: 10px;

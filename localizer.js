@@ -1,7 +1,7 @@
 const state = {
     progress:       new Map(),
     files:          new Map(),
-    pageLength:     10,
+    pageLength:     7,
     currentPage:    0,
     currentFile:    "",
     rowCount:       0,
@@ -17,6 +17,9 @@ const el = {
     stringBrowser:  document.getElementById("stringbrowser"),
     navControls:    document.getElementById("navcontrols"),
     notesArea:      document.getElementById("notesarea"),
+    trackerGreen:   document.getElementById("tracker-green"),
+    trackerBlue:    document.getElementById("tracker-blue"),
+    trackerRed:     document.getElementById("tracker-red"),
 }
 
 async function dropHandler(e) {
@@ -39,7 +42,40 @@ async function dropHandler(e) {
     }
 
     renderList(); // Redundant but just in case loadFile fails
+    renderTracker();
     loadFile(state.files.keys().next().value);
+}
+
+function renderTracker() {
+    let greenCount = 0;
+    let blueCount = 0;
+    let redCount = 0;
+    let totalRowCount = 0;
+
+    for (const filename of state.files.keys()) {
+        if (filename != "progress.json") {
+            totalRowCount += state.files.get(filename).querySelectorAll('Row').length;
+        }
+    }
+
+
+    for (const id of state.progress.keys()) {
+        if (id != "editornotes") {
+            switch (state.progress.get(id)) {
+                case 1:
+                    blueCount += 1;
+                    break;
+                case 2:
+                    greenCount += 1;
+                    break;
+            }
+        }
+        redCount = totalRowCount - blueCount - greenCount;
+    }
+
+    el.trackerGreen.innerText = greenCount;
+    el.trackerBlue.innerText = blueCount;
+    el.trackerRed.innerText = redCount;
 }
 
 function updateHints() {
@@ -172,7 +208,7 @@ function renderPage() {
     const rows = state.files.get(state.currentFile).querySelectorAll('Row');
     const firstRow = state.currentPage * state.pageLength;
 
-    const lastRow = Math.min(firstRow + state.pageLength, rows.length - 1);
+    const lastRow = Math.min(firstRow + state.pageLength -1, rows.length - 1);
 
     el.stringBrowser.innerHTML = "";
 
@@ -296,6 +332,8 @@ function refreshButtons(id, card) {
     if (progress == 2) greenBtn.classList.remove("inactive");
     if (progress == 1) blueBtn.classList.remove("inactive");
     if (progress == 0) redBtn.classList.remove("inactive");
+
+    renderTracker();
 }
 
 // Event listeners and override bs
