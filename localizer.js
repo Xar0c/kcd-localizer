@@ -278,8 +278,8 @@ function createCard(row) {
     card.className = "stringcard";
     card.innerHTML = `
         <p class="card-id">${id}</p>
-        <div class="card-sampletext">${sampleText}</div>
-        <div class="card-edittext" contenteditable="true">${editText}</div>
+        <div class="card-sampletext"></div>
+        <div class="card-edittext" contenteditable="true"></div>
         <div class="card-rating">
             <div class="rating-btn green"></div>
             <div class="rating-btn blue"></div>
@@ -287,8 +287,11 @@ function createCard(row) {
         </div>
     `;
 
+    card.querySelector(".card-sampletext").textContent = sampleText;
+    card.querySelector(".card-edittext").textContent = editText;
+
     card.querySelector(".card-edittext").addEventListener("input", e => {
-        cells[2].textContent = e.target.textContent;
+        cells[2].textContent = e.target.innerText;
         if (getProgress(id) == 0) {
             state.progress.set(id, 1);
         }
